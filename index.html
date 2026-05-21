@@ -3,33 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AI106 HTML project boilerplate" />
-    <title>AI106 HTML</title>
+    <meta name="description" content="CISSP MCQ generator using Perplexity space" />
+    <title>CISSP MCQ Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header class="site-header">
-      <h1>AI106 HTML</h1>
-      <p class="tagline">Starter boilerplate — edit and build from here.</p>
+      <h1>CISSP MCQ Generator</h1>
+      <p class="tagline">Generate multiple-choice questions for CISSP study.</p>
     </header>
 
     <main id="main">
-      <section class="card" aria-labelledby="welcome-heading">
-        <h2 id="welcome-heading">Welcome</h2>
-        <p>
-          This project includes separate HTML, CSS, and JavaScript files. Open
-          <code>index.html</code> in a browser or use a local dev server to
-          get started.
-        </p>
-        <button type="button" id="demo-button" class="button">
-          Try the demo
-        </button>
-        <p id="demo-output" class="demo-output" aria-live="polite"></p>
+      <section class="card form-card" aria-labelledby="generator-heading">
+        <h2 id="generator-heading">Generate MCQs</h2>
+        <form id="mcq-form">
+          <label for="num-questions">Number of questions</label>
+          <input id="num-questions" name="num" type="number" min="1" max="50" value="5" />
+
+          <label for="domain">CISSP Domain</label>
+          <select id="domain" name="domain">
+            <option value="All">All Domains</option>
+            <option value="Security and Risk Management">Domain 1 — Security and Risk Management</option>
+            <option value="Asset Security">Domain 2 — Asset Security</option>
+            <option value="Security Architecture and Engineering">Domain 3 — Security Architecture and Engineering</option>
+            <option value="Communication and Network Security">Domain 4 — Communication and Network Security</option>
+            <option value="Identity and Access Management">Domain 5 — Identity and Access Management</option>
+            <option value="Security Assessment and Testing">Domain 6 — Security Assessment and Testing</option>
+            <option value="Security Operations">Domain 7 — Security Operations</option>
+            <option value="Software Development Security">Domain 8 — Software Development Security</option>
+          </select>
+
+          <div class="actions">
+            <button type="submit" id="generate-button" class="button primary">Generate</button>
+            <a id="open-perplexity" class="link-button" target="_blank" rel="noopener">Open Perplexity Space</a>
+          </div>
+        </form>
+      </section>
+
+      <section class="card results-card" aria-live="polite">
+        <h2>Questions</h2>
+        <div id="results"></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span id="year"></span> AI106 HTML</p>
+      <p>&copy; <span id="year"></span> CISSP MCQ Generator</p>
     </footer>
 
     <script src="js/main.js" defer></script>
